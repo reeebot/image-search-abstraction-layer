@@ -1,2 +1,2 @@
-#url-shortener
-URL Shortener Microservice
+#image-search-abstraction-layer
+Image Search Abstraction Layer
