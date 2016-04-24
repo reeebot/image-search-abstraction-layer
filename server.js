@@ -13,7 +13,7 @@ app.route('/').get(function (req, res) {	        	////// serve static index.html
 app.get('/new/*', function(req, res) {
     var requrl = url.parse(req.url).pathname;               	// get request pathname
     var cleanreq = requrl.replace(/^\//g, '');          	    // remove first forward slash/
-    var split = cleanreq.split(/\/(.+)/, 2);	
+    var split = cleanreq.split(/\/(.+)/, 2);
     if (validator.isURL(split[1])){                             // checks if valid URL format
             var input = new Input(split, function(cb){          // input to database the original_URL
                 var jsonresponse = {                            // setup display data (original and short urls)
