@@ -1,14 +1,18 @@
 {
-  "name": "url-shortener",
+  "name": "image-search-abstraction-layer",
   "version": "1.0.0",
-  "description": "URL Shortener Microservice",
+  "description": "Image Search Abstraction Layer",
   "main": "server.js",
   "dependencies": {
     "express": "^4.13.4",
     "mongodb": "^2.1.16",
-    "validator": "^5.2.0",
+    "request": "^2.72.0",
+    "node-debug": "^0.1.0",
+    "require": "^2.4.20",
     "moment": "^2.12.0",
-    "valid-url": "^1.0.9"
+    "validator": "^5.2.0",
+    "valid-url": "^1.0.9",
+    "node-inspector": "^0.12.8"
   },
   "devDependencies": {},
   "scripts": {
@@ -17,18 +21,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reeebot/url-shortener.git"
+    "url": "git+https://github.com/reeebot/image-search-abstraction-layer.git"
   },
   "keywords": [
-    "express",
-    "node",
+    "nodejs",
+    "expressjs",
     "mongodb",
-    "url-shortener"
+    "javascript",
+    "image",
+    "search"
   ],
   "author": "Tim Meijome",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reeebot/url-shortener/issues"
+    "url": "https://github.com/reeebot/image-search-abstraction-layer/issues"
   },
-  "homepage": "https://github.com/reeebot/url-shortener#readme"
+  "homepage": "https://github.com/reeebot/image-search-abstraction-layer#readme"
 }
