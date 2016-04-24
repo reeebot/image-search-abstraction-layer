@@ -3,7 +3,7 @@ var app = express()
 var url = require('url')
 var port = process.env.PORT || 8080;
 var mongo = require('mongodb').MongoClient;
-var mongourl = 'mongodb://imgsearc:search@ds019481.mlab.com:19481/heroku_bpl2qs9g';
+var mongourl = 'mongodb://imgsearch:search@ds019481.mlab.com:19481/heroku_bpl2qs9g';
 
 ////// BING IMG API account setup
 var acctKey = 'Qd4xhMDeQE2df0oLuIeJfgh7eAaonO077gqpOhQY+Mc';
