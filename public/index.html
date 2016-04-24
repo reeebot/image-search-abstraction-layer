@@ -1,29 +1,26 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>URL Shortener Microservice</title>
+        <title>Image Search Abstraction Layer</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
             <h1 class="header">
-                API Basejump: URL Shortener Microservice
+                API Basejump: Image Search Abstraction Layer
             </h1>
             <blockquote>
                 User stories:
-                <ul>1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</ul>
-                <ul>2) If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</ul>
-                <ul>3) When I visit that shortened URL, it will redirect me to my original link.</ul>
-                <ul>4) If the long URL already exists in database, returns the shortURL already in database and does not create multiple same entries.**</ul>
+                <ul>1) I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</ul>
+                <ul>2) I can paginate through the responses by adding a ?offset=2 parameter to the URL.</ul>
+                <ul>3) I can get a list of the most recently submitted search strings.</ul>
             </blockquote>
-            <h3>Example creation usage:</h3>
-            <code>https://rebot-fcc-third.herokuapp.com/new/http://foo.com:80</code>
-            <h3>Example creation output:</h3>
-            <code>{ "original_url":"http://foo.com:80", "short_url":"https://rebot-fcc-third.herokuapp.com/8170" }</code>
-            <h3>Usage:</h3>
-            <code>https://rebot-fcc-third.herokuapp.com/8170</code>
-            <h3>Will redirect to:</h3>
-            <code>http://foo.com:80</code>
+            <h3>Example search:</h3>
+            <code>https://rebot-fcc-fourth.herokuapp.com/imgsearch/search_query</code>
+            <h5>Next page</h5>
+            <code>https://rebot-fcc-fourth.herokuapp.com/imgsearch/search_query?offset=2</code>
+            <h3>Most recent search strings:</h3>
+            <code>https://rebot-fcc-fourth.herokuapp.com/latestimgsearch/</code>
         </div>
     </body>
 </html>

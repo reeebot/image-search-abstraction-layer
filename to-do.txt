@@ -1,0 +1,3 @@
+fix:  if no offset=
+
+fix:  history display

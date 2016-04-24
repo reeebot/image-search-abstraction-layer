@@ -10,13 +10,11 @@ app.route('/').get(function (req, res) {	        	////// serve static index.html
 	res.sendFile(process.cwd()+'/public/index.html');
 });
 
-app.get('/*', function(req, res) {                      ////// compute the request
+app.get('/new/*', function(req, res) {
     var requrl = url.parse(req.url).pathname;               	// get request pathname
     var cleanreq = requrl.replace(/^\//g, '');          	    // remove first forward slash/
-    var split = cleanreq.split(/\/(.+)/, 2);	                // split into array of two after the first forward slash/ if present
-
-    if (split[0] === "new") {                           ////// the request is a new entry
-        if (validator.isURL(split[1])){                         // checks if valid URL format
+    var split = cleanreq.split(/\/(.+)/, 2);	
+    if (validator.isURL(split[1])){                             // checks if valid URL format
             var input = new Input(split, function(cb){          // input to database the original_URL
                 var jsonresponse = {                            // setup display data (original and short urls)
                     original_url : split[1],                    // (if URL exists in database it returns stored shortURL, or creates new shortURL)
@@ -31,8 +29,15 @@ app.get('/*', function(req, res) {                      ////// compute the reque
             }
             res.send(JSON.stringify(jsonresponse))
         }
-    }
-    else if (Number.isInteger(+split[0])) {	        	////// the request is a number
+})
+
+
+app.get('/*', function(req, res) {                      ////// compute the request
+    var requrl = url.parse(req.url).pathname;               	// get request pathname
+    var cleanreq = requrl.replace(/^\//g, '');          	    // remove first forward slash/
+    var split = cleanreq.split(/\/(.+)/, 2);	                // split into array of two after the first forward slash/ if present
+
+    if (Number.isInteger(+split[0])) {	        	    ////// the request is a number
         var query = new Query(split, function(cb){              // query database with request
             if (cb[0] === undefined) {                          // if request doesn't exist
                 var jsonresponse = {
