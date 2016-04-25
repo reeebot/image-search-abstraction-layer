@@ -51,20 +51,20 @@ app.get('/imgsearch/:search', function(req, res) {
       thumbnail : results.d.results[id].Thumbnail.MediaUrl,
       context : results.d.results[id].SourceUrl
       })}
-    res.send(arr)
     //// save the searchterm and searchtime to db for history tracking
     var data = {                      // setup the input data for db
       search : searchterm,
       time : new Date().toISOString() // grab current time
     }
-      mongo.connect(mongourl, function(err, db) {
-        if (err) throw err
-        var collection = db.collection('imagesearch')
-        var insert = collection.insert(data, function (err, data){       // insert data into database
-          if (err) throw err;
-          db.close()
-        });
-      })
+    mongo.connect(mongourl, function(err, db) {
+      if (err) throw err
+      var collection = db.collection('imagesearch')
+      var insert = collection.insert(data, function (err, data){       // insert data into database
+        if (err) throw err;
+        db.close()
+      });
+    })
+    res.send(arr)
   });
 });
 
